@@ -2,35 +2,34 @@
 import EventCard from '@/components/EventCard.vue'
 import EventInfo from '@/components/EventInfo.vue'
 import type { Event } from '@/type'
-import axios from 'axios'
-import {ref, onMounted } from 'vue'
+import EventService from '@/services/EventService'
+import { ref, onMounted } from 'vue'
 
-const events = ref<Event[]>(null)
+const events = ref<Event[]>([])
 
-onMounted( ()=>{
-  axios
-  .get('https://my-json-server.typicode.com/ninlawan-numnim/db/events')
-  .then((response)=>{
+onMounted(async () => {
+  try {
+    const response = await EventService.getEvents()
+    events.value = response.data
     console.log(response.data)
-  })
-  .catch((error)=>{
-    console.error('There was an error!',error)
-  })
+  } catch (error) {
+    console.error('There was an error!', error)
+  }
 })
 </script>
 
 <template>
   <h1>Events For Good</h1>
-    <!-- new element-->
   <div class="events">
     <div v-for="event in events" :key="event.id" class="event-container">
       <EventCard :event="event" />
       <EventInfo :event="event" />
-      </div>
-      </div>
+    </div>
+  </div>
 </template>
+
 <style scoped>
-.events{
+.events {
   display: flex;
   flex-direction: column;
   align-items: center;
