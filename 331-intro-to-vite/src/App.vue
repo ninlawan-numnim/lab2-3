@@ -3,45 +3,45 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-<div id = "layout">
-  <header>
-  <div class="wrapper">
-  <nav>
-  <RouterLink to="/">Home</RouterLink>
-  <RouterLink to="/">about</RouterLink>
-  </nav>
+  <div id="layout">
+    <header>
+      <div class="wrapper">
+        <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/">about</RouterLink>
+        </nav>
+      </div>
+    </header>
+    <RouterView />
   </div>
-  </header>
- <RouterView/>
-</div>
 </template>
 
 <style scoped>
-#layout{
-  font-family: Avenir,Helvetica ,Arial, sans-serif;
-  -webkit-front-smoothing:antialiased;
-  -moz-osx-front-smoothing: grayscale; 
+#layout {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-front-smoothing: antialiased;
+  -moz-osx-front-smoothing: grayscale;
   text-align: center;
-  color:#2c3e50;
+  color: #2c3e50;
 }
 
-nav{
-  padding:30px;
+nav {
+  padding: 30px;
 }
 nav a {
   font-weight: bold;
-  color:#2c3e50;
-  }
+  color: #2c3e50;
+}
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
+nav {
+  text-align:left;
+  margin-left: 1rem;
+  font-size: 1rem;
 
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-nav a.router-link-exact-active{
-  color:#42b983;
+  padding: 1rem 0;
+  margin-top: 1rem;
+}
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
