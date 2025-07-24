@@ -5,8 +5,9 @@ import StudentListView from '@/views/studentListView.vue'
 import EventDetailView from '@/views/event/DetailView.vue'
 import EventRegisterView from '@/views/event/RegisterView.vue'
 import EventEditView from '@/views/event/EditView.vue'
-import EventLayoutView from '@/views/event/LayoutViewe.vue'
+import EventLayoutView from '@/views/event/LayoutView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
+import NetworkErrorView from '@/views/NetworkErrorView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -54,19 +55,24 @@ const router = createRouter({
           props: true,
         },
         {
-          path: '/event/:id/register',
+          path: 'register',  // relative path
           name: 'event-register-view',
           component: EventRegisterView,
           props: true,
         },
         {
-          path: '/event/:id/edit',
+          path: 'edit',      // relative path
           name: 'event-edit-view',
           component: EventEditView,
           props: true,
         },
       ],
     },
+    {
+      path: '/network-error',
+          name: 'network-error-view',
+          component: NetworkErrorView
+    }
   ],
 })
 
