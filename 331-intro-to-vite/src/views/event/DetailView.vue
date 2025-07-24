@@ -3,13 +3,12 @@ import { toRefs, defineProps } from 'vue'
 import { type Event } from '@/types'
 
 const props = defineProps<{
-    event:Event
-    id: String
+  event: Event
+  id: String
 }>()
-const {event} = toRefs(props)
-
+const { event } = toRefs(props)
 </script>
 <template>
-    <p>{{ event.time }} @ {{ event.date }} @ {{ event.location }}</p>
-    <p>{{ event.description }}</p>
+  <p>{{ event.time }} @ {{ event.date }} @ {{ event.location }}</p>
+  <p>{{ event.description }}</p>
 </template>

@@ -37,8 +37,8 @@ const changePageSize = (newSize: number) => {
     name: 'event-list-view',
     query: {
       page: 1, // Reset to first page when changing size
-      size: newSize
-    }
+      size: newSize,
+    },
   })
 }
 
@@ -59,12 +59,12 @@ onMounted(async () => {
 
 <template>
   <h1>Events For Good</h1>
-  
+
   <!-- Page Size Selector -->
   <div class="page-size-selector">
     <label>Events per page: </label>
-    <select 
-      :value="pageSize" 
+    <select
+      :value="pageSize"
       @change="changePageSize(Number(($event.target as HTMLSelectElement).value))"
       class="page-size-select"
     >
@@ -80,29 +80,31 @@ onMounted(async () => {
       <EventCard :event="event" />
       <EventInfo :event="event" />
     </div>
-    
+
     <!-- Pagination Info -->
     <div class="pagination-info">
       <p>
-        Showing {{ events?.length || 0 }} of {{ totalEvents }} events 
-        (Page {{ page }} of {{ totalPages }})
+        Showing {{ events?.length || 0 }} of {{ totalEvents }} events (Page {{ page }} of
+        {{ totalPages }})
       </p>
     </div>
-    
+
     <div class="pagination">
       <RouterLink
         id="page-prev"
         :to="{ name: 'event-list-view', query: { page: page - 1, size: pageSize } }"
         rel="prev"
         v-if="page != 1"
-      >&#60; Prev Page</RouterLink>
-      
+        >&#60; Prev Page</RouterLink
+      >
+
       <RouterLink
         id="page-next"
         :to="{ name: 'event-list-view', query: { page: page + 1, size: pageSize } }"
         rel="next"
         v-if="hasNextPage"
-      >Next Page &#62;</RouterLink>
+        >Next Page &#62;</RouterLink
+      >
     </div>
   </div>
 </template>
