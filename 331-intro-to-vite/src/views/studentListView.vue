@@ -7,9 +7,7 @@
         :key="student.id"
         class="p-4 rounded-xl border shadow bg-white"
       >
-        <h2 class="font-semibold text-lg">
-          {{ student.name }} {{ student.surname }}
-        </h2>
+        <h2 class="font-semibold text-lg">{{ student.name }} {{ student.surname }}</h2>
         <p class="text-gray-600">GPA: {{ student.gpa }}</p>
       </div>
     </div>
@@ -34,7 +32,7 @@ onMounted(async () => {
     const response = await studentService.getStudents()
     students.value = response.data
   } catch (error) {
-    console.error("Failed to load students", error)
+    console.error('Failed to load students', error)
   }
 })
 </script>

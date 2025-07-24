@@ -8,12 +8,12 @@ import { RouterLink, RouterView } from 'vue-router'
       <div class="wrapper">
         <nav>
           <RouterLink :to="{ name: 'event-list-view' }">Event</RouterLink> |
-          <RouterLink :to="{ name: 'about'}">About</RouterLink> |
-          <RouterLink :to="{ name: 'student-list-view'}">Students</RouterLink>
+          <RouterLink :to="{ name: 'about' }">About</RouterLink> |
+          <RouterLink :to="{ name: 'student-list-view' }">Students</RouterLink>
         </nav>
       </div>
     </header>
-    
+
     <RouterView />
   </div>
 </template>
@@ -36,7 +36,7 @@ nav a {
 }
 
 nav {
-  text-align:left;
+  text-align: left;
   margin-left: 1rem;
   font-size: 1rem;
   padding: 1rem 0;
@@ -47,7 +47,7 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 
-h2{
+h2 {
   font-size: 20px;
 }
 </style>
