@@ -5,7 +5,6 @@ import { type Event } from '@/types'
 import EventService from '@/services/EventService'
 import { ref, onMounted, computed, watchEffect } from 'vue'
 import { useRouter } from 'vue-router'
-
 const router = useRouter()
 const events = ref<Event[] | null>(null)
 const totalEvents = ref(0)
@@ -50,8 +49,11 @@ onMounted(async () => {
         events.value = response.data
         totalEvents.value = response.headers['x-total-count']
       })
-      .catch((error) => {
-        console.error('There was an error!', error)
+      // .catch((error) => {
+      //   console.error('There was an error!', error)
+      // })
+      .catch(() => {
+        router.push({ name: 'network-error-view' })
       })
   })
 })

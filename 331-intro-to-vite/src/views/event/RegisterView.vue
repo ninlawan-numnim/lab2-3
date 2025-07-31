@@ -17,7 +17,7 @@ const register = () => {
   }, 3000)
   router.push({
     name: 'event-detail-view',
-    params: { id: props.event.id }
+    params: { id: props.event.id },
   })
 }
 </script>

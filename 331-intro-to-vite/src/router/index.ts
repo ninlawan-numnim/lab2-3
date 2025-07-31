@@ -8,6 +8,7 @@ import EventEditView from '@/views/event/EditView.vue'
 import EventLayoutView from '@/views/event/LayoutView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import NetworkErrorView from '@/views/NetworkErrorView.vue'
+import nProgress from 'nprogress'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,7 +31,7 @@ const router = createRouter({
       path: '/404/:resource',
       name: '404-resource-view',
       component: NotFoundView,
-      props: true
+      props: true,
     },
     {
       path: '/:catchAll(.*)',
@@ -55,13 +56,13 @@ const router = createRouter({
           props: true,
         },
         {
-          path: 'register',  // relative path
+          path: 'register', // relative path
           name: 'event-register-view',
           component: EventRegisterView,
           props: true,
         },
         {
-          path: 'edit',      // relative path
+          path: 'edit', // relative path
           name: 'event-edit-view',
           component: EventEditView,
           props: true,
@@ -70,10 +71,17 @@ const router = createRouter({
     },
     {
       path: '/network-error',
-          name: 'network-error-view',
-          component: NetworkErrorView
-    }
+      name: 'network-error-view',
+      component: NetworkErrorView,
+    },
   ],
+})
+router.beforeEach(() => {
+  nProgress.start()
+})
+
+router.afterEach(() => {
+  nProgress.done()
 })
 
 export default router

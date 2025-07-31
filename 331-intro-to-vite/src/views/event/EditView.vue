@@ -17,8 +17,8 @@ const updateEvent = () => {
   setTimeout(() => {
     store.resetMessage()
   }, 3000)
-  router.push({ 
-    name: 'event-detail-view', 
+  router.push({
+    name: 'event-detail-view',
     params: { id: props.event.id },
     // query: { message: 'The data has been updated!' }
   })
@@ -26,10 +26,8 @@ const updateEvent = () => {
 </script>
 
 <template>
-  <div>    
-    <button @click="updateEvent" class="update-btn">
-      Update Event
-    </button>
+  <div>
+    <button @click="updateEvent" class="update-btn">Update Event</button>
   </div>
 </template>
 
