@@ -30,12 +30,11 @@ const hasNextPage = computed(() => {
 
 const totalPages = computed(() => Math.ceil(totalEvents.value / pageSize.value))
 
-// Function to change page size
 const changePageSize = (newSize: number) => {
   router.push({
     name: 'event-list-view',
     query: {
-      page: 1, // Reset to first page when changing size
+      page: 1,
       size: newSize,
     },
   })
@@ -43,15 +42,11 @@ const changePageSize = (newSize: number) => {
 
 onMounted(async () => {
   watchEffect(() => {
-    events.value = null
     EventService.getEvents(pageSize.value, page.value)
       .then((response) => {
         events.value = response.data
         totalEvents.value = response.headers['x-total-count']
       })
-      // .catch((error) => {
-      //   console.error('There was an error!', error)
-      // })
       .catch(() => {
         router.push({ name: 'network-error-view' })
       })
@@ -83,7 +78,6 @@ onMounted(async () => {
       <EventInfo :event="event" />
     </div>
 
-    <!-- Pagination Info -->
     <div class="pagination-info">
       <p>
         Showing {{ events?.length || 0 }} of {{ totalEvents }} events (Page {{ page }} of
