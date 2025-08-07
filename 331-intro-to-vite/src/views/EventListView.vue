@@ -72,7 +72,7 @@ onMounted(async () => {
     </select>
   </div>
 
-  <div class="events">
+  <div class="flex flex-col items-center">
     <div v-for="event in events" :key="event.id" class="event-container">
       <EventCard :event="event" />
       <EventInfo :event="event" />
@@ -106,11 +106,6 @@ onMounted(async () => {
 </template>
 
 <style scoped>
-.events {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .event-container {
   display: flex;
