@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useRouter, useRoute } from 'vue-router'
 import { type Event } from '@/types'
 import { useMessageStore } from '@/stores/message'

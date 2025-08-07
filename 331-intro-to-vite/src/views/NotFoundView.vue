@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue'
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = withDefaults(
   defineProps<{
     resource: string
